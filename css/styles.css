@@ -100,6 +100,12 @@ body {
   border-radius: 3px;
   background-color: var(--accent-color);
 }
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--accent-color);
+}
+
 .contact-list {
   display: flex;
   margin-left: auto;
@@ -121,6 +127,12 @@ body {
   color: var(--lighter-text);
   display: flex;
   align-items: center;
+  transition: color 250ms var(--time-function);
+}
+.contact-link:hover,
+.contact-link:focus {
+  color: var(--accent-color);
+
 }
 .contact-list .icon {
   fill: currentColor;
@@ -129,6 +141,7 @@ body {
 .contact-link:hover .icon,
 .contact-link:focus .icon {
   fill: var(--accent-color);
+  transition: fill 250ms var(--time-function);
 }
 .contact-list .icon-tel {
   width: 10px;
@@ -148,13 +161,6 @@ body {
   fill: var(--accent-color);
 }
 
-.nav-link:hover,
-.nav-link:focus,
-.contact-link:hover,
-.contact-link:focus {
-  color: var(--accent-color);
-  transition: color 250ms var(--time-function);
-}
 .nav-link:active {
   color: var(--accent-color);
 }
@@ -615,14 +621,17 @@ body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
-  transition: opacity 250ms var(--time-function);
+  visibility: visible;
+  transition: opacity 2500ms var(--time-function),
+    visibility 2500ms var(--time-function);
 }
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
 }
 /* when modal is closed  */
-.backdrop.is-hidden .modal {
+.backdrop.is-hidden .modal {`
   transform: translate(-50%, -50%) scale(0.9);
 }
 /* when modal is open  */
@@ -639,7 +648,7 @@ body {
   border-radius: 5px;
 
   transform: translate(-50%, -50%) scale(1);
-  translate: transform 250ms var(--time-function);
+  transition: transform 2500ms var(--time-function);
 }
 .close-modal {
   position: absolute;
